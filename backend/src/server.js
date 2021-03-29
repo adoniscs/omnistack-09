@@ -8,7 +8,7 @@ const routes = require('./routes');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://omnistack09:omnistack09@omnistack-09.eyw9q.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+mongoose.connect('[colocar-link-do-mongodb-atlas]', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

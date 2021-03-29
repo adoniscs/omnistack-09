@@ -1,12 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
+const path = require('path');
 
 
 const routes = require('./routes');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://OmniStack09:omnistack09@omnistack09.niio2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://omnistack09:omnistack09@omnistack-09.eyw9q.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -17,7 +19,9 @@ mongoose.connect('mongodb+srv://OmniStack09:omnistack09@omnistack09.niio2.mongod
 // req.params = Acessar route params (para edição e delete)
 // req.body = Acessar corpo da requisição (para criação, edição)
 
+app.use(cors());
 app.use(express.json());
+app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads')));
 app.use(routes);
 
 app.listen(5000)
